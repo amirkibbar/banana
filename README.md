@@ -1,4 +1,6 @@
-# banana
+[ ![Download](https://api.bintray.com/packages/amirk/maven/metrics-newrelic-reporter/images/download.svg) ](https://bintray.com/amirk/maven/metrics-newrelic-reporter/_latestVersion)
+
+# metrics-newrelic-reporter
 a New Relic metrics reporter (see: http://metrics.dropwizard.io/3.1.0/, http://newrelic.com/)
 
 # Using the New Relic Metrics Reporter
@@ -12,7 +14,7 @@ Add the following to your gradle build:
     }
     
     dependencies {
-        compile "ajk.metrics.newrelic:banana:0.0.1"
+        compile "ajk.metrics.newrelic:metrics-newrelic-reporter:0.0.3"
     }
 ```
 

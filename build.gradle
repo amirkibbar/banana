@@ -7,8 +7,9 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 apply plugin: 'org.ajoberstar.github-pages'
 
+
 group = "ajk.metrics.newrelic"
-version = "0.0.1"
+version = "0.0.3"
 String repoName = "banana"
 
 repositories {
@@ -48,13 +49,20 @@ def pomConfig = {
 publishing {
     publications {
         maven(MavenPublication) {
-            from components.java
-            artifact sourcesJar
-
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'a New Relic metrics reporter (see: http://metrics.dropwizard.io/3.1.0/, http://newrelic.com/)')
                 root.children().last() + pomConfig
+            }
+
+            from components.java
+
+            artifact sourcesJar {
+                classifier "sources"
+            }
+
+            artifact javadocJar {
+                classifier "javadoc"
             }
         }
     }
@@ -80,7 +88,7 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = project.name
+        name = 'metrics-newrelic-reporter'
         websiteUrl = "https://github.com/amirkibbar/$repoName"
         issueTrackerUrl = "https://github.com/amirkibbar/$repoName/issues"
         vcsUrl = "https://github.com/amirkibbar/${repoName}.git"
@@ -93,13 +101,13 @@ bintray {
 }
 
 githubPages {
-    repoUri = "https://github.com/amirkibbar/elderberry.git"
+    repoUri = "https://github.com/amirkibbar/banana.git"
     pages {
         from javadoc
     }
 }
 
-assemble.dependsOn "sourcesJar", "javadocJar"
+assemble.dependsOn = [sourcesJar, javadocJar]
 bintrayUpload.dependsOn = [sourcesJar]
 
-task publishAll(dependsOn: [ bintrayUpload, publishGhPages]) << {}
+task publishAll(dependsOn: [bintrayUpload, publishGhPages]) << {}
