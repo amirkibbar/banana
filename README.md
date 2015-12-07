@@ -1,7 +1,10 @@
-[ ![Download](https://api.bintray.com/packages/amirk/maven/metrics-newrelic-reporter/images/download.svg) ](https://bintray.com/amirk/maven/metrics-newrelic-reporter/_latestVersion)
-
 # metrics-newrelic-reporter
+
 a New Relic metrics reporter (see: http://metrics.dropwizard.io/3.1.0/, http://newrelic.com/)
+
+[![Build Status](https://travis-ci.org/amirkibbar/banana.svg?branch=master)](https://travis-ci.org/amirkibbar/banana)
+
+[ ![Download](https://api.bintray.com/packages/amirk/maven/metrics-newrelic-reporter/images/download.svg) ](https://bintray.com/amirk/maven/metrics-newrelic-reporter/_latestVersion)
 
 # Using the New Relic Metrics Reporter
 
